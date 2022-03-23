@@ -1,0 +1,40 @@
+.Input {
+    position: relative;
+    margin: 12px 0;
+}
+
+.input {
+    width: 100%;
+    height: 64px;
+    border: 2px solid var(--color-primary-light);
+    border-radius: 12px;
+    color: var(--color-text);
+    padding: 0 10px;
+    font-size: 16px;
+    outline: none;
+    caret-color: var(--color-accent);
+}
+
+.input.focused {
+    border-color: var(--color-accent);
+}
+
+.label {
+    color: var(--color-primary);
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    background-color: white;
+    padding: 2px 6px;
+}
+
+.label.focused {
+    color: var(--color-accent);
+}
+
+.errorMessage {
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    padding: 4px;
+    opacity: 0.8;
+}

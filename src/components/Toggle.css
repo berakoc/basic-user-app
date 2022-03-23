@@ -1,0 +1,47 @@
+.Toggle {
+    width: 160px;
+    height: 48px;
+    border-radius: 12px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px 2px rgb(0 0 0 / 3%);
+    position: relative;
+    background-color: white;
+}
+
+.text {
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    flex: 1;
+    text-align: center;
+    z-index: 1;
+}
+
+.left {
+    left: 2px;
+}
+
+.right {
+    right: 4px;
+}
+
+.passive {
+    color: var(--color-text);
+}
+
+.active {
+    color: white;
+}
+
+.toggleFlow {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: var(--color-accent);
+    z-index: 0;
+}
