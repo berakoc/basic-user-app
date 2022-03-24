@@ -1,12 +1,13 @@
+import { yupResolver } from '@hookform/resolvers/yup';
+import PropTypes from 'prop-types';
+import { useForm } from 'react-hook-form';
+import * as Yup from 'yup';
+import { handleApiRequest } from '../utils/api';
+import { RequestPath } from '../utils/constants';
+import { createFormBinder } from '../utils/form';
+import { createQueryParams } from '../utils/query';
 import './Form.css';
 import Input from './Input';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as Yup from 'yup';
-import { useForm } from 'react-hook-form';
-import { createFormBinder } from '../utils/form';
-import PropTypes from 'prop-types';
-import { getQueryParam } from '../utils/query';
-import { ApiQueryKey, RequestPath } from '../utils/constants';
 
 
 const schema = Yup.object().shape({
@@ -22,9 +23,7 @@ const GetUserForm = ({setUser}) => {
         resolver: yupResolver(schema), 
     })
     const onSubmit = data => {
-        fetch(getQueryParam(ApiQueryKey).concat(RequestPath).concat(`?email=${data.email}`), {
-            method: 'GET',
-        }).then(res => res.json()).then(setUser);
+        handleApiRequest(RequestPath.concat(createQueryParams({email: data.email})), 'GET', null, setUser, )
     };
     return (
         <form className='Form' onSubmit={handleSubmit(onSubmit)}>
