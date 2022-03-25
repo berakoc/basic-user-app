@@ -1,13 +1,12 @@
+import { yupResolver } from '@hookform/resolvers/yup';
+import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
+import { handleApiRequest } from '../utils/api';
+import { RequestPath } from '../utils/constants';
+import { createFormBinder } from '../utils/form';
 import './Form.css';
 import Input from './Input';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { createFormBinder } from '../utils/form';
-import { getQueryParam } from '../utils/query';
-import { ApiQueryKey, RequestPath } from '../utils/constants';
-import PropTypes from 'prop-types';
-import { handleApiRequest } from '../utils/api';
 
 const schema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
